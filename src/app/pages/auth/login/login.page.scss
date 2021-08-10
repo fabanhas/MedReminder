@@ -1,0 +1,23 @@
+
+#btn-login{
+    margin: auto;
+    margin-top: 1rem;
+    max-width: 90%;    
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+}
+ion-footer{
+    background-color: #284ec9;
+    ion-button{
+        color: #fff;
+        letter-spacing: 3px;
+    }
+}
+
+form{
+    max-width: 450px;
+    display: block;
+    margin: auto;
+    margin-top: 2rem;
+}

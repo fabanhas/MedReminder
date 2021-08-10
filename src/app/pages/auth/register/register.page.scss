@@ -1,0 +1,16 @@
+ion-footer{
+    background-color: #284ec9;
+    ion-button{
+        color: #fff;
+        letter-spacing: 3px;
+    }
+}
+form{
+    max-width: 450px;
+    display: block;
+    margin: auto;
+    margin-top: 1rem;
+    ion-item:last-of-type{
+        margin-bottom: 1rem;
+    }
+}

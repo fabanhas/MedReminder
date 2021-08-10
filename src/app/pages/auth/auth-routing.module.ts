@@ -1,0 +1,43 @@
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
+import { TopoLoginComponent } from './component/topo-login/topo-login.component';
+import { ForgotPage } from './forgot/forgot.page';
+import { LoginPage } from './login/login.page';
+import { RegisterPage } from './register/register.page';
+
+const routes: Routes = [
+  {
+    path: '', children : [        
+        {
+          path : '', component : LoginPage
+        },
+        {
+          path : 'forgot', component : ForgotPage
+        },
+        {
+          path : 'register', component : RegisterPage
+        },
+    ]
+  }
+];
+
+@NgModule({
+  imports: [
+    CommonModule,
+    IonicModule,
+    ReactiveFormsModule,
+    FormsModule,
+    RouterModule.forChild(routes),
+  ],
+  declarations : [
+    LoginPage,
+    ForgotPage,
+    RegisterPage,
+    TopoLoginComponent
+  ],
+  exports: [RouterModule]
+})
+export class AuthRoutingModule { }

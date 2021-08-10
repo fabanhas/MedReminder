@@ -1,0 +1,98 @@
+<ion-content class="ion-padding">
+  <ion-grid fixed>
+
+  
+  <div id="logo-div">
+    <ion-text color="medium">
+      <img src="../../../assets/icon/logo.jpg" alt="">
+    </ion-text>  
+  </div>
+
+  <ion-row>
+    <ion-col size="12" class="ion-text-end">Olá, {{ nome }}</ion-col>
+  </ion-row>
+
+  <ion-col>
+    <ion-button (click)="openForm()" id="toggleForm" expand="block" fill="clear" shape="round">
+      <ion-icon name="add-circle-outline"></ion-icon>
+      Novo medicamento
+    </ion-button>
+  </ion-col>
+
+    
+    <form [formGroup]="medForm" [hidden]=ishidden (submit)="registrarMed()">
+      <ion-item class="ion-margin-bottom">
+        <ion-icon color="if" slot="start" name="medical-outline"></ion-icon>
+        <ion-input formControlName="nome" type="text" placeholder="Nome do medicamento" autfocus="true"></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom">
+        <ion-icon color="if" slot="start" name="water-outline"></ion-icon>
+        <ion-input formControlName="qtd" type="text" placeholder="Quantidade, ex: 5 gota" autfocus="true"></ion-input>
+      </ion-item>
+  
+      <ion-item class="ion-margin-bottom">
+        <ion-icon color="if" slot="start" name="alarm-outline"></ion-icon>
+        <ion-input formControlName="horario"  mask="00:00"   type="text" placeholder="Horario" autfocus="true"></ion-input>
+      </ion-item>
+  
+      <ion-item class="ion-margin-bottom">
+        <ion-icon color="if" slot="start" name="timer-outline"></ion-icon>
+        <ion-input type="text" mask="00:00" formControlName="acada" type="text" placeholder="a cada HH:MM " autfocus="true"></ion-input>
+      </ion-item>
+
+
+      <ion-input type="text" hidden formControlName="email" type="text" [(ngModel)]="email"></ion-input>
+
+      <ion-input type="text" hidden formControlName="ativo" type="text" [(ngModel)]="value"></ion-input>
+
+  
+  
+  
+  
+      <ion-button [disabled]="medForm.invalid"  id="btn-login" type="submit" expand="block" fill="clear" class="ion-margin-top">
+        Enviar
+      </ion-button>
+    </form>
+    
+
+  <ion-toolbar>
+    <ion-title>Minhas medicações</ion-title>
+  </ion-toolbar>
+  <ion-list>
+    <ion-item *ngFor="let medicamento of listaMeds">
+      <ion-label>
+        <h2> {{ medicamento.nome }} </h2>
+        <p>Horario: {{ medicamento.horario }}</p>
+        <h4>A cada {{ medicamento.acada }} horas</h4>
+      </ion-label>
+      <ion-icon slot="end" name="file-tray-full-outline" (click)="arquivar(medicamento)"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+  <ion-toolbar>
+    <ion-title>Historico de medicações</ion-title>
+  </ion-toolbar>
+  <ion-list>
+    <ion-item *ngFor="let medicamento of listaMedsArq">
+      <ion-label>
+        <h2> {{ medicamento.nome }} </h2>
+        <p>Horario: {{ medicamento.horario }}</p>
+        <h4>A cada {{ medicamento.acada }} horas</h4>
+      </ion-label>
+      <ion-icon slot="end" name="notifications-outline" (click)="ativar(medicamento)"></ion-icon>
+      <ion-icon slot="end" name="trash" (click)="remove(medicamento)"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col>
+      <ion-button id="sair" (click)="logout()" expand="block" fill="clear" shape="round">
+        Sair
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

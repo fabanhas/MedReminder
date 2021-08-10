@@ -1,0 +1,43 @@
+<ion-content class="ion-padding">
+
+  <ion-grid fixed>
+  
+
+    <topo-login></topo-login>
+
+
+    <form [formGroup]="loginForm" (submit)="register()">
+      <ion-item>
+        <ion-icon color="if" slot="start" name="person-circle-outline"></ion-icon>
+        <ion-input formControlName="nome" type="text" placeholder="Nome" autfocus="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon color="if" slot="start" name="mail"></ion-icon>
+        <ion-input formControlName="email" type="email" placeholder="Digite seu email" autfocus="true"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-icon color="if" slot="start"  name="lock-closed-outline"></ion-icon>
+        <ion-input formControlName="senha" type="password" placeholder="senha"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon color="if" slot="start"  name="lock-closed-outline"></ion-icon>
+        <ion-input formControlName="confirm_senha" type="password" placeholder="senha"></ion-input>
+      </ion-item>
+    
+      <ion-button [disabled]="loginForm.invalid" id="btn-login" type="submit" expand="block" fill="solid" color="dark">
+        Cadastrar
+      </ion-button>
+    </form>
+    <ion-row>
+      <ion-col size="2">
+        <ion-button [routerLink]="['/auth']" expand="block" fill="solid" shape="round">
+          <ion-icon name="arrow-undo-outline"></ion-icon>
+          Voltar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+</ion-content>
